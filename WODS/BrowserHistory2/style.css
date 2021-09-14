@@ -1,1 +1,5 @@
-body {color: blue;}
+h1,h2,h3{ font-family: 'Oswald', Sans }
+    body {font-familty: " Open Sans", Sans; color: darkblue; margin: 10px, 50px, 10px, 50px; width: 950px;
+        background-color: ivory;}
+
+    img{display: flex; float: left}    
