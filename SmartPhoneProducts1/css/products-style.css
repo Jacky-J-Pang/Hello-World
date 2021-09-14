@@ -1,24 +1,21 @@
-
 /* General */  
 h1,h2 {display:flex; flex-flow: row wrap; justify-content: space-around; color: white; font-size: xx-large;}
 p {font-size: large; color: white; font-weight: bold;}
 body {
  text-align: Center;
-  background-image: url("phone_globe.jpg"); flex-flow: ; justify-content: space-around;
+  background-image: url("phone_globe.jpg"); justify-content: space-around;
 }
 body{
     background-image:url(../images/phone_globe.jpg);
     background-repeat: no-repeat; 
     background-position: center; 
-    background-size: cover
-}
+    background-size: cover}
+/* Typography */  
+h1 {font-weight: bold;}
 body > div {
     border: 5px solid black;
     display: flex;
   }
-
-/* Typography */  
-h1 {font-weight: bold;}
 /* block styling */  
 div {border: 5px solid black ; display: flex;}
 /* Form styling */  
@@ -28,3 +25,4 @@ img { width: 200px; height: 200px;}
 /* Styling the products display */ 
 
 /* Defintinos */
+.leftside, .rightside { height: 100vh; width: 100%}
