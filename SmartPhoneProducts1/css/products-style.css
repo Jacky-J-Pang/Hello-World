@@ -1,28 +1,28 @@
-/* General */  
-h1,h2 {display:flex; flex-flow: row wrap; justify-content: space-around; color: white; font-size: xx-large;}
+/* General */
+body {  width: 800px;   margin: 0 auto; }
+
 p {font-size: large; color: white; font-weight: bold;}
-body {
- text-align: Center;
-  background-image: url("phone_globe.jpg"); justify-content: space-around;
-}
+
+/* Typography */
+h1,h2 {display:flex; flex-flow: row wrap; justify-content: space-around; color: white; font-size: xx-large;}
+
+/* block styling */
+div {   border: 5px solid black; display: flex }
+
+/*  Form styling */
 body{
     background-image:url(../images/phone_globe.jpg);
     background-repeat: no-repeat; 
-    background-position: center; 
-    background-size: cover}
-/* Typography */  
-h1 {font-weight: bold;}
-body > div {
-    border: 5px solid black;
-    display: flex;
-  }
-/* block styling */  
-div {border: 5px solid black ; display: flex;}
-/* Form styling */  
-body { width: 1000px; margin: 10px auto }
+    background-position:center; 
+    background-size: cover;
+}
+ main{   flex-flow: row wrap;
+    display:flex;
+    justify-content: space-around;
+}
 
-img { width: 200px; height: 200px;}
-/* Styling the products display */ 
-
-/* Defintinos */
-.leftside, .rightside { height: 100vh; width: 100%}
+/* Styling the products */
+.item img {
+    width: 200px;
+    height: 200px; 
+}
