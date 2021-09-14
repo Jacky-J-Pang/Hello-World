@@ -1,16 +1,30 @@
-/* General */  
-h1,h2 {display:flex; flex-flow: row wrap; justify-content: space-around;}
-body { width: 800px; margin: 0 auto }
-img { width: 200px; height: 200px;}
 
+/* General */  
+h1,h2 {display:flex; flex-flow: row wrap; justify-content: space-around; color: white; font-size: xx-large;}
+p {font-size: large; color: white; font-weight: bold;}
 body {
-    text-align: Center;
-  background-image: url("phone_globe.jpg");
+ text-align: Center;
+  background-image: url("phone_globe.jpg"); flex-flow: ; justify-content: space-around;
 }
+body{
+    background-image:url(../images/phone_globe.jpg);
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover
+}
+body > div {
+    border: 5px solid black;
+    display: flex;
+  }
+
 /* Typography */  
 h1 {font-weight: bold;}
 /* block styling */  
 div {border: 5px solid black ; display: flex;}
 /* Form styling */  
+body { width: 1000px; margin: 10px auto }
 
+img { width: 200px; height: 200px;}
 /* Styling the products display */ 
+
+/* Defintinos */
