@@ -1,8 +1,12 @@
 /* General */  
-h1,h2 {display:flex; flex-flow: row wrap; justify-content: space-around}
+h1,h2 {display:flex; flex-flow: row wrap; justify-content: space-around;}
 body { width: 800px; margin: 0 auto }
 img { width: 200px; height: 200px;}
 div {border: 5px solid black ; display: flex;}
+body {
+    text-align: Center;
+  background-image:img src="./images/phone_globe.jpg";
+}
 /* Typography */  
 /* block styling */  
 
