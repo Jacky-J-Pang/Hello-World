@@ -3,7 +3,7 @@
     
 <head>
     <script>
-            const store_name = "Jacky Pang";
+            var store_name = "Jacky Pang";
             var hits = 1;
             spins = 10; 
     </script>
@@ -23,7 +23,13 @@
     </p>
     
     <header>
-        <h1>Port's Used Smart Phone Store</h1>
+        <h1>
+            <span id='name_span'><script>
+                document.write(store_name); 
+            </script> 
+            </span>
+            's Used Smartphone Store
+        </h1>
     </header>
     <div>
         <aside>
@@ -69,9 +75,15 @@
     </div>
     <footer>
         <h1>
-            Your One Stop For Used Phones
+            Your One Stop For Used Phones - 
+            <Script>
+                document.write (store_name);
+            </Script>
         </h1>
     </footer>
 </body>
 
 </html>
+
+   
+  
