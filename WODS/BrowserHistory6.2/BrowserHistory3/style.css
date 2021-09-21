@@ -1,0 +1,10 @@
+h1,h2,h3{ font-family: 'Oswald', Sans }
+    body {font-family: " Open Sans", Sans; color: darkblue; margin: 10px, 50px, 10px, 50px; width: 950px;
+        background-color: ivory;}
+    img{display: flex; float: left}    
+ .left {float:left; width: 300px; padding:1em }
+ .right {float:right; width: 300px; padding:1em }
+ .center {margin-left:300px; margin-right: 300px; padding: 1em}
+ li{ display: inline;}
+ ul{list-style-type: none; margin:0px; padding:0}
+ #NAV a {margin-left: 50px; margin-right: 50px}
