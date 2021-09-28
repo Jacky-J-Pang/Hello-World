@@ -5,7 +5,7 @@
     <script>
             var first_name = "Jacky";
             var last_name = "Pang";
-            var now = new Date()
+            
     </script>
     <style id="localstyle"></style> 
     <meta charset="utf-8">
@@ -80,14 +80,22 @@
     </div>
     <footer>
         <script>
+            var line= 1;
+         
             document.write(`
-        <tbody><tr><th colspan="2">
+        
+            <table border="1" style="margin-left: auto; margin-right: auto; text-align: center;">
+            <tbody>
+            <tr><th colspan="2">
             <h1>Your One Stop For Used Phones - ${first_name} ${last_name}</h1>
             </th></tr>
-            <tr><td>1.</td><td><br></br></td></tr>
-            <tr><td>2.</td><td> document.write() </td></tr>
-            <tr><td>3.</td><td>11:15 AM</td></tr>
-        </tbody>
+                <tr><td>${line}</td>
+                    <td><br>Copyright @ ${first_name} ${last_name}</td></tr>
+                <tr><td>${line + Number(1)}</td>
+                    <td>2021</td></tr>
+                <tr><td>${line + Number(2)}</td>
+                    <td></td></tr>
+                </tbody>
             `);
         </script>
     </footer>
