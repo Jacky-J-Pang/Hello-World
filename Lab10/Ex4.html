@@ -1,3 +1,30 @@
+<style>
+  td{
+    border: 1px solid black;
+  }
+  tr {
+    border: 1px solid black;
+  }
+  tr:hover { background-color: yellow;}
+
+
+</style>
+<table id= "testable" style="border: 1px solid black;text-align: center;"
+onclick="
+  new_row = this.appendChild(document.createElement('tr'));
+  for (i=1; i <= this.rows[0].cells.length; i++ ) {
+    new_cell = new_row.appendChild(document.createElement('td')); 
+    new_cell.innerHTML = 'xxx';
+  }  
+  "
+>
+
+<tbody id="prodTableBody">
+    <tr style="border: 1px solid black;">
+    <th style="border: 1px solid black;"> Product Name </th>
+    <th>Price</th>
+  </tr>
+
 <script>
 var product_quantities = [1,2,3,4,5];
 
@@ -12,23 +39,23 @@ products = [
  { 'name': 'large jawbreaker', 'price': 0.10 }
 ];
 
-    //printing basic border table;
-    document.write(`
-      <table style="border: 1px solid black;text-align: center;" onclick="this.appendChild(document.createElement('tr'));">
-      <tbody><tr style="border: 1px solid black;">
-      <th style="border: 1px solid black;"> Product Name</th>
-      <th>Price</th></tr>`
-    );
-
-
 //function of loop version 2
-for ( let prodObj of products){
-  document.write(`
-    <tr style="border: 1px solid black;">
-    <td style="border: 1px solid black;"> ${prodObj.name} </td>
-    <td> ${prodObj.price} </td>
+for ( let i in products){
+   document.write(`
+    <tr>
+    <td> ${products[i].name} </td>
+    <td> ${products[i]["price"]} </td>
     </tr>   
   `);
 }
-document.write(`</tbody></table>`)
 </script>
+</tbody></table>
+
+<input type="button" value="Delete Last Row"
+  onclick="
+    prodTableBody.deleteRow (prodTableBody.rows.length - 1)" >
+
+<input type="button" value="Add Row"
+  onclick="
+    prodTableBody.addRow (prodTableBody.rows.length + 1)" > 
+    
