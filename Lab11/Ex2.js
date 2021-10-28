@@ -1,7 +1,5 @@
-var attributes = "Jacky;20;MIS";
+var attributes = "Jacky;20;20.5;-9.5";
 
-var oarts = attributes.split (';');
-for (part of parts){
-    console.log(part + 1, typeof part);
-}
-console.log 
+var parts = attributes.split (';');
+
+console.log (parts.join(','));
