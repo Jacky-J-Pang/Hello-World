@@ -1,34 +1,38 @@
 <script src="product_data.js">
-  /* JS for Dybamic Invoice */
-  //arays for quantitiy 
-  var quantities = [1,2,3,4,5];
-//functions
-  function generate_item_rows(product_quantities_array){
-  // row creation paremters
-  
-  for( i in products){
-    if (products_quantities_array[i] == 0 || !isNotNegInt(product_quantities_array[i])) continue; 
-                  extended_price = products[i] *product_quantities_array[i];
-                  subtotal = subtotal + extended_price
+  /* JS for Dynamic Invoice */
+  </script>
+  <script>
+  //array for quanitity 
+    var quantities = [1,2,3,4,"cat"];
+  //functions
+    function generate_item_rows(product_quantities_array){
+        // Row1 
+        for( i in products){
+          if(product_quantities_array[i] == 0) continue; errors = isNotNegInt(product_quantities_array[i], true);
+            if (errors.length ==0)        {
+          extended_price = products[i].price * product_quantities_array[i];
+                  subtotal = subtotal + extended_price}
+                  else { extended_price = ""};
                   document.write(`
                   <tr>
-                      <td width="43%"> ${products[i].name}</td>
-                      <td align="center" width="11%">${product_quantities_array} </td>
+                      <td width="43%"> ${products[i].name} </td>
+                      <td align="center" width="11%">${product_quantities_array[i]} <br> <font color = "red"> ${errors.join ('<br>')} </font> </td>
                       <td width="13%">\$${products[i].price}</td>
                       <td width="54%">\$${extended_price}</td>
                   </tr>
                   `);
-                }
-  }
-
-  function isNotNegInt(val, returnErrors = false){
-    error=[];
-    if (val < 0)errors.push('Negative');
-    if (parseInt(val) != val) errors.push('whoel numba');
-    if (Number(val) != val)errors.push ('Not an Integer');
-  }
-
-
+                
+           }
+    }
+    
+    function isNotNegInt(val, returnErrors = false) {
+      errors = [];
+      if(Number(val) != val) errors.push ('Not a number!');
+      if (val < 0 ) errors.push('Negative value!');
+      if (parseInt(val) != val) errors.push('Not an Integer');
+      return returnErrors ? errors : ( ( errors.length > 0) ? false:true);
+    }
+  
   </script>
   
   <!DOCTYPE html>
@@ -52,7 +56,7 @@
             <script>
               subtotal = 0;
               generate_item_rows(quantities);
-        //Taxes
+      //Taxes
       var Tax_rate = 0.0575
       var Tax = subtotal * Tax_rate;
       
@@ -99,3 +103,5 @@
           Subtotals over $100 will be charged 5% of the subtotal amount</b>
   </body>
   </html>
+  
+
