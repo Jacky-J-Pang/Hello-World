@@ -6,7 +6,8 @@ var parts = attributes.split (';');
     console.log(`${part} isNonNegInt: ${Check_If_String_Is_Non_Neg_Int(part)}`)
 };
 */
-parts.forEach(checkIt);
+parts.forEach((item, index) => { console.log(`part ${index} is  ${(Check_If_String_Is_Non_Neg_Int(items)?'a':'not a')} quantity`);
+});
 
 function Check_If_String_Is_Non_Neg_Int(q,returnErrors = false) {
     //Check if a string q is a non-neg integer. If returnError is true, the array of errors is rteurn. Otherwise returns true if q is a non-neg int.
