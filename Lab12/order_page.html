@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Log </title>
+</head>
+
+<script>
+    function CheckQuantityTextbox(theTextBox, theMsgSpan) {
+        //is the textboko a non neg int.
+        var errors_array = Check_If_String_Is_Non_Neg_Int(theTextBox.value, true);
+        theMsgSpan.innerHTML = errors_array.join(' ');
+    }    
+    function Check_If_String_Is_Non_Neg_Int(q, returnErrors = false) {
+        //Check if a string q is a non-neg integer. If returnError is true, the array of errors is rteurn. Otherwise returns true if q is a non-neg int.
+        if (q == '') q = 0;
+        errors = []; // assume no errors at first
+        if (Number(q) != q) errors.push('Not a number!'); // Check if string is a number value
+        else {
+            if (q < 0) errors.push('Negative value!'); // Check if it is non-negative
+            if (parseInt(q) != q) errors.push('Not an integer!'); // Check that it is an integer
+        } 
+        return returnErrors ? errors : (errors.length == 0);
+    }
+    function displayPurchase(){
+        var qty = quantity_textbox1.value;
+        var err = Check_If_String_Is_Non_Neg_Int (qty, true);
+        if (err.length == 0){
+            document.getElementsByTagName('body') [0].innerHTML = (`Thank for you for ordering ${qty} things!`)
+        }
+        else{
+            qty_textbox_message1.innerHTML = `<font color = "red"> ${err.join (' ')} Enter a valid quantity.</font>`;
+        }
+      
+    }
+</script>
+
+<body>
+<form name  = "quantity_form" action = "" method= "get"> 
+    <label>Quantity Desired</label>
+    <input name="quantity_textbox1" type="text" onkeyup="CheckQuantityTextbox(this);">
+        <script>
+            if (params.has('quantity_textbox1')){
+                quanitty_form["quantity_textbox1"].value = params.get ('quantity_textbox');
+            if(params.get('quantity_textbox1')>0 ){
+                document.write(`    Thank you for ordering ${params.get('quantity_textbox1')} things!`)
+            }
+            }
+            
+        </script>
+    <span id='qty_textbox_message1'>Enter a quantity</span>
+    <br>
+    <input NAME="purchase_submit_button" type = "submit" value ="Purchase">
+</form>
+</body>
+
+</html>
