@@ -10,7 +10,7 @@
         "Name": "Lance",
         "Price": "45.00",
         "Image": "./Images/Lance.png",
-        "quantity_available": 4
+        "Quantity_available": 4
     },
 
     {
