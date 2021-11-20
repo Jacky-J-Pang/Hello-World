@@ -2,28 +2,28 @@
     {
         "Name": "Gojo Wallpaper",
         "Price": "78.00",
-        "Image": "src = ",
+        "Image": "./Images/Goji.jpg ",
         "Quantity_available": 12
     },
 
     {
-        "Name": "",
+        "Name": "Lance",
         "Price": "45.00",
-        "Image": "",
+        "Image": "./Images/Lance.png",
         "quantity_available": 4
     },
 
     {
         "Name": "Unicorn",
         "Price": "87",
-        "Image": "",
+        "Image": "./Images/Unicorn.jpg",
         "Quantity_available": 8
     },
 
     {
-        "Name": "Blazblue",
-        "Price": "",
-        "Image": "",
+        "Name": "Fate",
+        "Price": "199",
+        "Image": "./Images/Fate.png",
         "Quantity_available": 40
     }
     
