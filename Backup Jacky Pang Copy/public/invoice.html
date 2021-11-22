@@ -1,0 +1,148 @@
+<script src="./products.js" type="text/javascript">
+// Importing in progress
+</script> 
+<script> 
+        let params = (new URL(document.location)).searchParams; //  Pulling data from the query "submit_purchase" n loo for amont entered
+        var quantities = [];
+        if (params.has('submitPurchase')) 
+        {
+            // starting a for loop same code can be found in the server.js
+            for (i = 0; i <products.length; i++)
+            {
+                if(params.has(`quantity${i}`)) //checked and pull the values of "i"s
+                {
+                    var a_qty = params.get(`quantity${i}`);
+                    quantities[i]=a_qty;
+                }
+            }
+        }
+        else
+        {
+            window.location.href ='./products_display.html'; // This will force the user to the products display page if there is no quantity inputted
+        }
+</script>
+
+<!DOCTYPE html>
+  <html lang="en">
+    <!-- Import of font and stylesheets-->
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Invoice</title>
+        <link rel="stylesheet" href="./stylesheets/navbar.css">
+        <link rel="stylesheet" href="./stylesheets/checkout.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+      <style>
+          body {
+          font-family: 'Lobster', 'Open Sans';
+          background: linear-gradient( 20deg, pink,gray,white)
+          }
+      </style>
+    </head>
+  <!-- Nav bar below. Note to self for future use get a static function to fill all nav bars -->
+    <body>
+            <ul>
+            <li style="float:left"><a href="./index.html"> Home </a></li>
+            <li><a href="./products_display.html">Static</a></li>
+            <li style="float:right"><a class="active" href="./invoice.html">Shopping Cart</a></li>
+          </ul>
+          <br>
+          <div class="row">
+          <div class="col-25">
+            <div class="cell">
+        <table>
+          <!-- this is the table for the invoice. Shows the quantity, price, and extended price. Used a document.write script so that it would write out on the page.-->
+          <tbody>
+            <button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button> 
+            <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+              <tr>
+                <th style="text-align: left;" width="40%;">Product</th>                                
+                <th width="20%">Quantity</th>
+                <th width="20%">Price</th>
+                <th width="20%">Extended Price</th>
+                <th width="40%"> Comments</th> 
+               <!--  Update local client date for future purpos<th>
+                  <script>
+                    var dt = new Date();
+                    document.getElementById("client date") =  dt.toLocaleDateString();
+                    Document.WRITE (dt)
+                  </script>
+                </th>
+              -->
+              </tr>
+            <script>
+              
+                subtotal = 0
+                for (i = 0; i < products.length; i++) {
+                  if (quantities[i] > 0) {
+                  // product row
+                  extended_price = quantities[i] * products[i].price
+                  subtotal += extended_price;
+                  document.write(`
+            <tr>
+              <td style="text-align: left;" width="40%">${products[i].name}</td>
+              <td width="20%">${quantities[i]}</td>
+              <td width="20%">\$${products[i].price}</td>
+              <td width="20%">\$${extended_price}</td>
+            </tr>
+            `);
+                }
+               }
+                
+              // used hawaii tax rate 
+              var tax_rate = 0.0471;
+              var tax = tax_rate * subtotal;
+      
+              // Computing
+              if (subtotal <= 70) {
+                processing = 19;
+              }
+              else if (subtotal <= 100) {
+                processing = 5;
+              }
+              else {
+                processing = 0.03 * subtotal; // 3% of subtotal
+              }
+      
+              // Compute grand total
+              var total = subtotal + tax + processing;
+                 </script>
+                  <tr>
+                    <td colspan="4" width="100%">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" width="67%">Sub-total</td>
+                    <td width="54%">$<script>document.write(subtotal);</script></td>
+                  </tr>
+                  <tr>
+                    <td  colspan="3" width="67%"><span style="font-family: arial;">Tax at <script>document.write(100*tax_rate);</script>%</span></td>
+                    <td width="54%">$<script>document.write(tax.toFixed(2));</script></td>
+                  </tr>
+                  <tr>
+                      <td  colspan="3" width="67%">Processing</span></td>
+                      <td width="54%">$<script>document.write(processing.toFixed(2));</script></td>
+                    </tr>
+                  <tr>
+                    <td colspan="3" width="67%"><strong>Total</strong></td>
+                    <td width="54%"><strong>$<script>document.write(total.toFixed(2));</script></strong></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;" colspan="4"> <strong><br>OUR PROCESSING POLICY IS:
+                      <br>A subtotal $0 - $49.99 will be $2 processing
+                      <br>A subtotal $50 - $99.99 will be $5 processing</br>
+                      Subtotals over $100 will be charged 3% of the subtotal amount</strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div> 
+          <div class="col-75">
+            <div class="cell">
+              <form name="complete_purchase" action="./complete_purchase.html" method="GET">
+                <input type="submit" value="Complete Purchase" class="btn">
+              </form>
+            </div>
+          </div>
+        </body>

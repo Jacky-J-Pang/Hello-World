@@ -1,0 +1,45 @@
+<!--
+    Basically, when you click complete purchase, it'll bring you to this page which is kinda like a "Thanks for purchasing!" thing.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- linking stylesheets and fonts -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <link rel="stylesheet" href="./stylesheets/navbar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+          <!-- this next one pulls up the image to show on screen with font in the image-->
+             <!--See W3 school for formating issues -->
+             <!-- Note fore self the H1 image backgorund overwrites the backgorund colour revised in future if needed -->
+    <style>
+        body {
+            font-family: 'Lobster', 'Open Sans';
+            text-align: center;
+            font-size: xx-large;
+            background: linear-gradient(90deg,lightcyan, ivory, light green);
+        }
+        h1 {
+            text-shadow: 10px;
+            color:coral;
+            padding: 150pt;
+            background-image: url(./images/ThankYou.jpg);
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position: center;
+        }
+    </style>
+</head>
+<!-- Nav bar and others-->
+<body>
+    <ul>
+        <li style="float:left"><a href="./index.html">Home page</a></li>
+        <li><a href="./products_display.html">Static</a></li>
+        <li style="float:right"><a href="./invoice.html">Cart</a></li>
+      </ul>
+    <!-- NOte to future self the h1 code is specifally emdeed with an image use h1 with cautio --><h1>
+Thank you for your purchase, your link will be sent to your email momentarily !
+    </h1>
+</body>
+</html>
