@@ -1,0 +1,37 @@
+/* A simple template found on the web some were borrowed from the Lab3 */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    position: relative;
+    top: 0;
+    border-style: solid;
+    bottom: 10px;
+    width: 100%;
+    }
+    li a {
+    display: block;
+    color:black;
+    font-size: 35px;
+    text-align: center;
+    padding: 15px 8px;
+    }
+    li b { 
+        display: block;
+        background-color: transparent ;
+        font-size: 20px;
+        text-align: center;;
+        padding: 50px 12px;
+
+    }
+    li a:hover:not(.active) {
+    background:transparent;
+    }
+    li {
+        float: left;
+        }
+    .active {
+        background-color: transparent;
+    }

@@ -1,0 +1,97 @@
+/* Tempeate was from W3 Schools Forms section and was amended some was from the past in my repo website called repo.lt */
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  width: 75%;
+}
+/* Found this code in stack overflow */
+.col-25 {
+  -ms-flex: 25%; 
+  flex: 25%;
+
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+  float: left;
+}
+
+.container {
+  background-color:white;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+/* This styles the text in billing information*/
+input[type=text] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/* This is for styling the icons used*/
+.icon-cell {
+  margin-bottom: 20px;
+  padding: 7px;
+  font-size: 24px;
+}
+
+label {
+  margin-bottom: 20px;
+  display: block;
+}
+
+/*Button color*/
+.btn {
+  background-color: transparent;
+  color: black;  padding-left: 30px;
+  position: center;
+  margin: 10px 0;
+  border: none;
+  
+
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: greenyellow;
+}
+
+span.price {
+  float: right;
+
+}
+
+
+/*Invoice table below*/
+table {
+  border-collapse:separate;
+  align-self: center;
+  border: 1;
+  padding-left: 30em;
+}
+th, td {
+  padding: 5px;
+  text-align: right;
+  border-bottom: 1px solid;
+}
+
+th {
+  background-color: ivory;
+}

@@ -1,0 +1,53 @@
+
+/*CSS Styling to make my products style page neato, a lot of it was just off of googling and looking at the SmartPhonesProduct display css*/
+/* Note to self img is adjusted so that when compressing the quality of img does not change for example the compression imgages of the last 3*/
+img {
+    width: 500px;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+}
+
+div {
+    column-count: inherit;
+    column-gap: 20px;
+    column-rule-style: solid;
+    column-rule-color: black;
+    column-rule-width: 4px;
+    padding: 2em; 
+    border-style: solid;
+    border-color:  black;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 15px;
+}
+#col h2 {
+    display: inline;
+    vertical-align: top;
+}
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+} 
+p {
+    text-align: justify;
+    font-size: 20px;
+    font-weight: lighter;
+        
+}
+body {
+    color: blakc;
+}
+/* this is to style my button to match the complete purchase button*/
+#sbutton {
+    background: transparent;
+    color:darkblue;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 22px;
+  }
