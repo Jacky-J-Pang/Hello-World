@@ -1,0 +1,159 @@
+<script>
+ //wallpaper invoice display
+  </script>
+  <script src="./product.js" type=""></script>
+  <script>
+   //invoice loads after functions in the data inputed ischecked are checked 
+    let params = (new URL(document.location)).searchParams;
+    
+    if(params.has('username')){
+    }
+    else{ //if the invoice page doesn't recieve username info,  send back to product display
+      alert('Please login before checkout');
+      window.location = 'login.html';
+      window.stop();
+    }
+    if (params.has(`purchase_submit`)) 
+    {} 
+    else{
+      alert('You must enter the amount of wallpapers you want to purchase');
+      window.location = 'products_display.html';
+      window.stop();}
+  //Form was submitted so initiate the invoice by taking the quantities that were submitted for each product
+  //If you went to invoice.html directly without submitting any quanitites, you will get a no form submitted
+    var quantities = [];
+    if (params.has('purchase_submit')) {
+      for (i = 0; i < products.length; i++) {
+        if (params.has(`quantity${i}`)) {
+          a_qty = params.get(`quantity${i}`);
+          quantities[i] = a_qty;
+        }
+      }
+    } else {
+      document.write('no form submitted');
+    }
+    console.log(quantities);
+  /*table to create the invoice
+  Linked is what is in the table to the product.js where all the prices items and pictures are
+  */
+  </script>
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Invoice</title>
+    <style>
+      body{
+        text-align: center;
+        background-image: url("images/Login.png");
+      
+      }
+      th{
+        font-size: 22px;
+        background-color: blanchedalmond;
+      }
+      tr{
+        font-size: 18px;
+        align-items: center;
+        background-color: blanchedalmond;
+      }
+      h1{
+        background-color: blanchedalmond;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <h1>Jacky's Wallpaper Invoice</h1>
+      <h1> <script>document.write(`Thank you for your purchase ${params.get('username')}!!!`);</script> </h1>
+    </header>
+    
+    <table border="2">
+      <tbody>
+        <tr id="invoice">
+          <th width="20%">Item</th>
+          <th width="10%"> Image </th>
+          <th width="10%">Quantity</th>
+          <th width="10%">Price</th>
+          <th width="50%">Extended Price</th>
+        </tr>
+        <script>
+          subtotal = 0; //starting amount till prices are calculated and added up
+          //If the quantity's of the products are greater than 0, calculate extended price, subtotal and document write the products purchased, quanitites of each, price and extended price.
+          for (i = 0; i < products.length; i++) {
+            if (quantities[i] > 0) { //product row
+              // product row
+              extended_price = quantities[i] * products[i].price
+              subtotal += extended_price;
+              document.write(`
+          <tr>
+            <td width="43%">${products[i].name}</td>
+            <td> <img src="${products[i].image}" width='600' height='400'> </td>
+            <td align="center" width="11%">${quantities[i]}</td>
+            <td width="13%">\$${products[i].price}</td>
+            <td width="54%">\$${extended_price}</td>
+          </tr>
+          `);
+            }
+          }
+          // Compute tax 
+          var tax_rate = 0.04712;
+          var tax = subtotal * tax_rate;
+          // Compute shipping
+          if (subtotal >= 100) {
+            var shipping = 0.05 * subtotal
+          }
+          else if (subtotal >= 50) {
+            var shipping = 5
+          }
+          else if (subtotal < 50) {
+            var shipping = 2
+          }
+          // Compute grand total 
+          var grandtotal = subtotal + tax 
+        // Sources: Invoice WOD, Assignment 1 example
+        </script>
+        <tr>
+          <td colspan="4" width="100%">&nbsp;</td>
+          <td></td> <!-- Value place holder-->
+        
+        </tr>
+        <tr>
+          <td colspan="3" width="67%">Sub-Total</td>
+          <td width="54%">$
+            <script>document.write(subtotal);</script>
+            <td></td>
+ 
+          </td>
+        </tr>
+        <tr>
+          <td  colspan="3" width="67%">Tax @
+            <script>document.write( tax_rate);</script>%</span></td>
+          <td width="54%">$
+            <script>document.write(tax.toFixed(2));</script>
+            <td></td>
+      
+          </td>
+        </tr>
+        
+        <tr>
+          <td colspan="3" width="67%" style="font-size: 30px;"><strong>Total</strong></td>
+          <td width="54%" style="font-size: 30px;"><strong>$
+              <script>document.write(grandtotal.toFixed(2));</script></strong></td>
+              <td></td>
+    
+        </tr>
+        
+          
+        
+      </tbody>
+    </table>
+    <footer>
+      <h1>
+      Please Check our email, the purchased wallpaper is available to download! 
+    </footer>
+  </body>
+  
+  </html>

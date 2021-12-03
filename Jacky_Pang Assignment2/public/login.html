@@ -1,0 +1,63 @@
+<script>
+    //Description: This is the login page where the user can login if they have previously registered. If they are a new user, they can click the register button on this page that takes them to the registration page.
+  
+    </script>
+    <html lang="en">
+            <link href="pretty.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Please Login Before Proceeding to Checkout!</title>
+  
+        <link rel="stylesheet"  href="./stylesheets/navbar.css">
+        <link rel= "stylesheet" href="./stylesheets/products-style.css">
+        <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Lobster">
+    <!-- New Background n stuff-->
+    <style>
+        body 
+        {
+            text-align: center;
+            font-family:'Lobster', 'Open Sans';
+            background: linear-gradient(90deg, lightblue,pink, lightgreen);
+            
+           
+        }
+    </style>
+       
+    
+    </head>
+    
+   
+    
+    <body>
+        <ul> 
+            <!-- Nav Bar-->
+            <li style="float:left"><a href="./index.html">Home Page </a></li>
+            <li><a class="active" href="./products_display.html"> Static </a></li>
+            
+        </ul>
+        <h1>Jacky's Wallpaper Login</h1>
+    
+        <h2>To continue purchasing, please login below</h2>
+
+        <form name="loginform" method="POST"> 
+            <div>
+            <input type="text" name="username" size="40" placeholder="enter username" ><br /> 
+            <input type="password" name="password" size="40" placeholder="enter password"><br />
+            <input type="submit" value="login" id="submit">  </div>
+            </form>  
+    </body>
+    
+    <h2>Are you a new user? Click below to register on our site!</h2>
+    
+    <body>
+    <div>
+        <form action="./registration.html">
+        <input type="submit" value="Register Here" id="regpage" name="register_here">
+        </form>
+    </div>
+    
+    </body>
+    
+    </html>
