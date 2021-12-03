@@ -96,7 +96,7 @@ app.post("/registration.html", function (request, response) {
         errors.username_error = "Please make your username longer"; //if length is less than 4, show error to make the username longer
     }
 
-    //Fullname Validation // got help for the first fullname validation from Mr. Port
+    //Fullname Validation // 
     fullname = request.body.fullname;//retrieves the fullname data
     if ((/[a-zA-Z]+[ ]+[a-zA-Z]+/).test(request.body.fullname) == false) {
         errors.fullname_error = "Please use letters and spaces";
@@ -133,7 +133,7 @@ app.post("/registration.html", function (request, response) {
         users_reg_data[username].fullname = request.body.fullname;
 
         fs.writeFileSync(filename, JSON.stringify(users_reg_data)); //Writes registration info into the userdata json file
-        theQuantQuerystring = qs.stringify(flowerquant); //Turns quantity object into a string
+        theQuantQuerystring = qs.stringify(''); //Turns quantity object into a string
         response.redirect("/invoice.html?" + theQuantQuerystring + `&username=${username}`); //If all good, send to the invoice page with username/quantity info
     } else {
         qstring = qs.stringify(request.body) + "&" + qs.stringify(errors);

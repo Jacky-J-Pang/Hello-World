@@ -1,7 +1,40 @@
 <script>
   //Description: Page that contains the user to input their data to become a registered user
-  //Jayla Kaita & Melissa Yago 12/1/19-Code was adapted from Lab 14 hmtl form wise & Stack Exchange (for validation & guard check)
-  window.onload=function (){ //Got help from Mr. Port for this section
+  // Jacky Pang 11/30/2021 addapted from Lab 14 hmtl  and personal reference to my past codes https://replit.com/@Jun_LiangLiang/ExperiencedSneakyForms-1#index.html ;
+  // https://replit.com/@Jun_LiangLiang/advnace-menu-command#Main.java -> Yeah I noticed this file was in Java, I didnt know until i was debugging it and was confused why the stuff was all red lol
+
+
+
+    /*  OWN PERSNAL REFERNCE OF CODE, YES I REAlized I WAS TYPING IN JAVSA UNTIL IT WAS Too LATE :(
+     
+    import java.util.*;
+
+class Main {
+    
+    public static void main(String[] args) {
+    
+        double pizzaPrice = 2.50;
+
+        Scanner getInput = new Scanner(System.in);
+        
+        System.out.println("Pizza costs $" + pizzaPrice + " per slice.");
+        System.out.println("How many slices do you want?");
+        int numSlices = 0;
+        numSlices = getInput.nextInt();
+        
+        double totalPrice = 0.0;
+        totalPrice = numSlices * pizzaPrice;
+        
+        System.out.println("Your total cost is $" + totalPrice + " for " + numSlices + " slices of pizza.");
+         
+
+    }
+}    
+    */
+
+
+
+  window.onload=function (){ 
     var urlParams = new URLSearchParams(window.location.search);
    if (urlParams.has("username")){ //Gets username data and displays in URL
      f.fullname.value=urlParams.get("fullname"); //full name from form is equal to the full name that is displayed in URL

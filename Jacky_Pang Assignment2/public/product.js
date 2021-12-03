@@ -1,5 +1,6 @@
 //Description: Array that contains all five products with price, descr, image,. and quantity available.
 //Jacky Pang 11/30/2021
+//Alright Gotta remake the entire website Shit keep givin me module missing or overflow erros TF? - Jacky 
 var products = [
     {
         "name": "Fate",
