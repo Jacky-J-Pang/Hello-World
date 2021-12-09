@@ -1,4 +1,4 @@
-//Description: The server for the Jacky's Wallpaper Serverside code was reviewed and made changes in the depreceated code only in this file by Alexandria Lim. 
+//Description: The server for the Jacky's Wallpaper Serverside code was reviewed and made changes in the depreceated code only in this file by Alexandria Lim and Zi jun. 
 // Deprecated code instead of removing it compeltley because the code used is kinda depenednet on the the prefix of this code, if deleted altogether gotta restrucutrea alot of stuff
 // saves time!
 

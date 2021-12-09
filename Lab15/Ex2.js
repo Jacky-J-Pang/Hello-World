@@ -2,12 +2,15 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 
-var cookieParser = require('cookie-parser');
-app.use(cookieParser());
+// var cookieParser = require('cookie-parser');
+// app.use(cookieParser());
+
+var session = require('express-session');
+app.use(session({secret: "MySecretKey", resave: true, saveUninitialized: true}));
 
 app.get('/set_cookie', function (request, response) {
 // this will send a cookie to the requester
-    response.cookie('name', 'Dan');
+    response.cookie('name', 'Jacky', { maxAge: 15*1000});
     response.send('The name cookie has been sent!');
 });
 
@@ -17,7 +20,14 @@ app.get('/use_cookie', function (request, response) {
   response.send(`Welcome to the Use Cookie page ${ request.cookies.name}`);
 });
 
+    
+app.get('/use_session', function (request, response) {
+// this will get the name cookie from the requester repond with a message 
+    // console.log( request.cookies );
+    response.send(`Welcome  your session id is ${ request.session.id}`);
+});
 
+    
 app.use(express.urlencoded({ extended: true }));
 
 // var buf = new Buffer(1);
@@ -65,7 +75,7 @@ app.get("/login", function (request, response) {
     // Give a simple login form
     str = `
 <body>
-<form action="javascript" method="POST">
+<form action="" method="POST">
 <input type="text" name="username" size="40" placeholder="enter username" ><br />
 <input type="password" name="password" size="40" placeholder="enter password"><br />
 <input type="submit" value="Submit" id="submit">
@@ -81,7 +91,14 @@ app.post("/login", function (request, response) {
     the_password = request.body['password'];
     if(typeof users_reg_data[the_username] != 'undefined') {
        if(users_reg_data[the_username].password == the_password) {
-           response.send(`${the_username} is logged in`);
+           if(typeof request.session['last login'] != 'undefined') {
+               var last_login = request.session['last login'];
+           } else {
+                var last_login = 'First login!';
+           }
+           console.log(last_login);
+           request.session['last login'] = new Date().toISOString(); // put login date into session
+           response.send(`You last loggin in on ${last_login}`);
        } else {
            response.redirect('/login');
        }
