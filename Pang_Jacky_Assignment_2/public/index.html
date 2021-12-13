@@ -38,39 +38,7 @@
              <h1>  Most Popular Wallpapers This Month</a></h1>
             <p><em> Animated Wallaper Comming Soon to our Shop </em></p> <!-- EM Function was found in W3 code emphasize-->
 
-        <script>
-                //JS for the caroausel rotater 
-                var slidePosition = 1; //First position is 1
-                SlideShow(slidePosition); // Sett slide postion in order of rotation
-
-                // forward/Back controls 
-                function plusSlides(s) {   
-                SlideShow(slidePosition += s);//move and add plus one in the variable per click 
-                }
-
-                //  images controls
-                function currentSlide(s) {
-                    SlideShow(slidePosition = s); //get the current number of 1
-                    
-                }
-
-                function SlideShow(s) {
-                var i;
-                var slides = document.getElementsByClassName("Containers");
-                var circles = document.getElementsByClassName("dots");
-                
-                if (s > slides.length) {slidePosition = 1}
-                if (s < 1) {slidePosition = slides.length}
-                for (x = 0; x < slides.length; x++) {
-                    slides[x].style.display = "none";
-                }
-                for (x = 0; x < circles.length; x++) {
-                    circles[x].className = circles[x].className.replace(" enable", "");
-                }
-                slides[slidePosition-1].style.display = "block";
-                circles[slidePosition-1].className += " enable";
-                } 
-        </script>       
+      
         <!-- Caoursel Taken from https://www.section.io/engineering-education/how-to-make-an-image-carousel-for-your-website/ Edited from Photos to MP4-->           
         <!-- Not all classes / ID is defined for future use-->
         <!-- Slideshow container -->
@@ -112,3 +80,41 @@
    
     </body>
     </html>
+    <script>
+        //JS for the caroausel rotater 
+
+            var slidePosition = 1; //First position is 1
+            SlideShow(slidePosition); // Sett slide postion in order of rotation
+
+                            // forward/Back controls 
+        function plusSlides(s) {   
+        SlideShow(slidePosition += s);//move and add plus one in the variable per click 
+        }
+
+        //  images controls
+        function currentSlide(s) {
+            SlideShow(slidePosition = s); //get the current number of 1
+            
+        }
+
+        function SlideShow(s) {
+        var i;
+        var slides = document.getElementsByClassName("Containers");
+        var circles = document.getElementsByClassName("dots");
+        
+        if (s > slides.length) {slidePosition = 1}
+        if (s < 1) {slidePosition = slides.length}
+        for (x = 0; x < slides.length; x++) {
+            slides[x].style.display = "none";
+        }
+        for (x = 0; x < circles.length; x++) {
+            circles[x].className = circles[x].className.replace(" enable", "");
+        }
+        slides[slidePosition-1].style.display = "block";
+        circles[slidePosition-1].className += " enable";
+        } 
+        
+
+
+
+</script> 

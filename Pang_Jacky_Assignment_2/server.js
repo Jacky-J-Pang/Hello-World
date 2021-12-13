@@ -18,7 +18,6 @@ var wallpaperemp = {}; //Defines wallpaperemp as a variable that requests the qu
 
 
 
-
 app.use(myParser.urlencoded({ extended: true }));
 //GET purchase submission form, if good give an invoice, otherwise send back to order page
 app.get("/process_page", function (request, response) {
