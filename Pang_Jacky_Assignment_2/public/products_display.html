@@ -35,28 +35,24 @@
         </ul>
         <form name="product_selection_form" action="process_page" method="GET">
             
-            <div>
-                <main id="products_main_display">
-                   <script>
-                        for (i = 0; i < products.length; i++) {
-                            document.write(`  <section class="item">
-                            <h2 style="font-size=15px;">${products[i].name}</h2>
-                                    <br><img src="${products[i].image}">
-                                    <p>$${products[i].price}</p>
-                                    <p><em>${products[i].description}</em></p>
-                                    <h2>${products[i].quantity_available} LEFT IN STOCK!</h2>
-                                    <label id="quantity${i}_label"}">
-                                         Quantity</label>
-                                    <input type="text" placeholder="0" name="quantity${i}" 
-                                    onkeyup='this'>       
-                                    </section>
-                                    `)
-                        }
-                    </script>
-                    <br>
-               
-                </main>
-            </div>
+            <main id="products_main_display">
+                <script> // Loop for products creation
+                    for (i = 0; i < products.length; i++) {
+                        document.write(`  <section class="item">
+                        <h2 style="font-size=15px;">${products[i].name}</h2>
+                                <br><img src="${products[i].image}">
+                                <p>$${products[i].price}</p>
+                                <p><em>${products[i].description}</em></p>
+                                <h2>${products[i].quantity_available} LEFT IN STOCK!</h2>
+                                <label id="quantity${i}_label"}">
+                                Quantity</label>
+                                <input type="text" placeholder="0" name="quantity${i}" 
+                                onkeyup='this'>       
+                                </section>
+                            `)
+                    }
+                </script>
+            </main>
             <footer id="display_footer">
                 <h1>
                     We don't own anything dont sue us!
@@ -66,6 +62,8 @@
         </form>
     
     </body>
+    <video autoplay muted loop src="blob:https://www.youtube.com/3f187856-ca3e-430b-9a15-d65db2c9ad49"></video>
+
     
     </html>
     

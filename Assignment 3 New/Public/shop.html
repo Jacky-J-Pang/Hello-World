@@ -50,33 +50,33 @@
             </div>
           </nav>
         <!--Navbar End-->
-        <form name="product_selection_form" action="process_page" method="GET">
+      <form name="product_selection_form" action="process_page" method="GET">
         <script>
-          //JSON -JS Object Notation --> Take
-          fetch ("products.json")
-            .then(response => response.json())
-        </script>
-          <div>
-              <main>
-                 <script>
-                      for (i = 0; i < products.length; i++) {
-                          document.write(`  <section class="item">
-                          <h2 style="font-size=15px;">${products[i].name}</h2>
-                                  <br><img src="${products[i].image}">
-                                  <p>$${products[i].price}</p>
-                                  <p><em>${products[i].description}</em></p>
-                                  <h2>${products[i].quantity_available} LEFT IN STOCK!</h2>
-                                  <label id="quantity${i}_label"}">
-                                       Quantity</label>
-                                  <input type="text" placeholder="0" name="quantity${i}" 
-                                  onkeyup='this'>       
-                                  </section>
-                                  `)
-                      }
-                  </script>
-                  <br>
-             
-              </main>
-          </div>
+          for (i = 0; i < products.length; i++) {
+              document.write(`  <section class="item">
+              <h2 style="font-size=15px;">
+                ${products[i].name}
+              </h2>
+              <br>
+                <img src="${products[i].image}">
+              <p>
+                $${products[i].price}
+              </p>
+              <p><em>
+              ${products[i].description}
+              </em></p>
+              <h2>
+                ${products[i].quantity_available} 
+                LEFT IN STOCK!
+              </h2>
+              <label id="quantity${i}_label"}">
+                  Quantity</label>
+              <input type="text" placeholder="0" name="quantity${i}" 
+              onkeyup='this'>       
+              </section>
+              <br>`)
+              }
+          </script>
+
     </body>
 </html>
