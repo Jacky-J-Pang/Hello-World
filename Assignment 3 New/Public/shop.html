@@ -2,6 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="./products.js"></script>
+  <script>
+    
+    let params = (new URL(document.location)).searchParams; // get the query string which has the form data
+    var prod_key = 'Aspect';
+    if(params.has('pkey')){
+      prod_key = params.get('pkey');
+    }
+    
+    </script>
   <title> Runeterra </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,23 +60,24 @@
             </div>
           </nav>
         <!--Navbar End-->
-      <form name="product_selection_form" action="process_page" method="GET">
+      <form name="product_selection_form" action="./process_page" method="post">
         <script>
-          for (i = 0; i < products.length; i++) {
+          document.write( `<input type="hidden" name="pkey" value="${prod_key}">`);
+          for (i = 0; i < products[prod_key].length; i++) {
               document.write(`  <section class="item">
               <h2 style="font-size=15px;">
-                ${products[i].name}
+                ${products[prod_key][i].name}
               </h2>
               <br>
-                <img src="${products[i].image}">
+                <img src="${products[prod_key][i].image}">
               <p>
-                $${products[i].price}
+                $${products[prod_key][i].price}
               </p>
               <p><em>
-              ${products[i].description}
+              ${products[prod_key][i].description}
               </em></p>
               <h2>
-                ${products[i].quantity_available} 
+                ${products[prod_key][i].quantity_available} 
                 LEFT IN STOCK!
               </h2>
               <label id="quantity${i}_label"}">
@@ -75,8 +86,9 @@
               onkeyup='this'>       
               </section>
               <br>`)
-              }
+              }              
           </script>
-
+          <strong><input type="submit" value="Purchase!" name="purchase_submit"></strong>
+        </form>
     </body>
 </html>
