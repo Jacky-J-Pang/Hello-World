@@ -1,0 +1,221 @@
+h1,
+h2,
+p,
+body {
+    font-family: 'lobser', 'sans';
+    color: white;
+}
+
+body {
+    width: auto;
+    height: auto;
+    background-image: url(./banner.png);
+    background-position: center;
+    height: 100%;
+    background-size: cover;
+
+}
+
+input[type=submit] {
+    display: inline-block;
+    background-color: darkred;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    margin: 5px;
+}
+input[type=button] {
+    display: inline-block;
+    background-color: darkred;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-top:auto;
+}
+
+button[type=submit] {
+    display: inline-block;
+    background-color: clear;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-top:auto;
+}
+
+.banner {
+    padding-top: 13px;
+    padding-bottom: 5px;
+    
+}
+
+.banner-center {
+    font-size: 24px;
+}
+
+.banner-down {
+    font-size: 22px;
+    text-transform: capitalize;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', Arial, Helvetica;
+    color: mintcream;
+}
+
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: clear;
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+background-color: lightskyblue;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+background-color: lightskyblue;
+}
+
+li a, .dropbtn {
+display: inline-block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+li.dropdown {
+display: inline-block;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+opacity: 1;
+min-width: 160px;
+z-index: 1;
+}
+
+.dropdown-content a {
+color: mintcream;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
+}
+
+.dropdown-content a:hover {background-color: lightskyblue;}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.navbar {
+    font-size: 25px;
+}
+
+.top {
+position: sticky;
+top: 0;
+text-align: center;
+}
+
+form{
+    width: 1200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.items {
+color: mintcream;
+display: flex;
+width: auto;
+align-content: center;
+justify-content: center;
+}
+
+.item-box {
+    width: 650px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-style: inset;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.product-input {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: stretch;
+}
+
+input[type=text] {
+width: 90px;
+margin: 8px 0;
+}
+
+.span {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: clear;
+    text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
+}
+
+.butt {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: white;
+}

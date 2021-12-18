@@ -1,0 +1,94 @@
+<!-- Jacky Pang 12/10/2021-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="./products.js"></script>
+  <script>
+    
+    let params = (new URL(document.location)).searchParams; // get the query string which has the form data
+    var prod_key = 'Aspect';
+    if(params.has('pkey')){
+      prod_key = params.get('pkey');
+    }
+    
+    </script>
+  <title> Runeterra </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Following linking source was copied in W3 Schools and a few other third party websites for these link-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Style Below-->
+    <style>
+        .container-fluid{
+        text-align: justify;
+        text-justify: inter-word;
+        }
+        h2{
+            background-color: ivory;
+        }
+        .container-x{
+            text-align: center;
+        }
+     
+    </style>
+      
+  </head>
+    <body>
+        <!--Nav Bar-->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand active;" href="Runeterra.html">Runeterra </a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="index.html">History</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Store <span class="cart"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"> Comming Soon </a></li>
+                    <li><a href="#"> Most Popular </a></li>
+                  </ul>
+                </li>
+                <li><a href="shop.html">Shop</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="cart.html"><span class = "glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+              </ul>
+            </div>
+          </nav>
+        <!--Navbar End-->
+      <form name="product_selection_form" action="./process_page" method="post">
+        <script>
+          document.write( `<input type="hidden" name="pkey" value="${prod_key}">`);
+          for (i = 0; i < products[prod_key].length; i++) {
+              document.write(`  <section class="item">
+              <h2 style="font-size=15px;">
+                ${products[prod_key][i].name}
+              </h2>
+              <br>
+                <img src="${products[prod_key][i].image}">
+              <p>
+                $${products[prod_key][i].price}
+              </p>
+              <p><em>
+              ${products[prod_key][i].description}
+              </em></p>
+              <h2>
+                ${products[prod_key][i].quantity_available} 
+                LEFT IN STOCK!
+              </h2>
+              <label id="quantity${i}_label"}">
+                  Quantity</label>
+              <input type="text" placeholder="0" name="quantity${i}" 
+              onkeyup='this'>       
+              </section>
+              <br>`)
+              }              
+          </script>
+          <strong><input type="submit" value="Purchase!" name="purchase_submit"></strong>
+        </form>
+    </body>
+</html>

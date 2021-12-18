@@ -1,0 +1,132 @@
+<!-- Jacky Pang
+        12/15/21
+            See below for registeration page
+                copied from my past code in 
+                https://replit.com/@Jun_LiangLiang/InputValidationDemo#Main.java made reference I know this is java
+-->
+<script> 
+// onload function is to load the browser once everything is loaded  part of this was edited by ALEXANDRIA LIM 
+    window.onload = function () {
+        let params = (new URL(document.location)).searchParams;
+        console.log(params);
+        console.log(location.search);
+     
+        if (params.has('reg_errors')) {
+            var errors = JSON.parse(params.get('reg_errors'));
+            var reg_data = JSON.parse(params.get('reg_data'));
+            for (input_name in reg_data) {
+                // Put parseing the reg_data into a sticky form 
+                document.getElementById(input_name).value = reg_data[input_name];
+                //  priint error to retrospective area
+                if (typeof errors[input_name] != 'undefined') {
+                    document.getElementById(input_name + '_error').innerHTML = errors[input_name];
+                }
+                // if there is no error, turn the error blank to not show anything
+                if (typeof errors[input_name] == 'undefined') {
+                    document.getElementById(input_name + '_error').innerHTML = " ";
+                }
+            }
+        }
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Open+Sans">
+    <title>Register</title>
+</head>
+<style>
+    /* Nav Bar */
+    .w3-bar-block .w3-bar-item {
+        padding: 20px;
+    }
+
+    /* Body styling */
+    body{
+        background-image: url("./images/BKG2.jpg");
+        background-position:  center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+    h3 {
+        text-align: center;
+        font-family: 'roboto mono', sans;
+    }
+
+    /* Log In button */
+    #login {
+        font-family: 'roboto mono', sans;
+        font-size: 15px;
+        color: white;
+        background-color: white;
+        border-radius: 25px;
+        padding: 5px;
+        box-shadow: 3px 3px gray;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #login:hover {
+        color: white;
+        background-color: white;
+    }
+
+    /* Box around Registern*/
+    .box {
+        margin-top: 50px;
+        border: 1px solid white;
+        width: 450px;
+        background: clear;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Create an account hover */
+    .create a:hover {
+        font-weight: bold;
+        color: white;
+    }
+</style>
+
+<body>
+    <h1 style="text-align:center; color:white">Register!</h1>
+    <div class="box" style="padding-top: 1em; color:white; align-content: flex-start;" >
+        <script>document.write(`<form action="/register.html${location.search}" method="POST">`)</script>
+        
+            <label for="username" >Username</label><span class="span" id="username_error"></span>
+            <input type="text" id="username" name="username" size="20" placeholder="Username">
+        
+            <div style="padding-top: 1em;"></div>
+
+            <label for="fullname">Full Name</label><span class="span" id="fullname_error"></span>
+            <input type="text" id="fullname" name="fullname" size="20" placeholder="Full Name"
+                onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)">
+                <div></div>
+            <script>// REF https://www.11zon.com/zon/html/html-input-text-only-letters-and-space.php, basically only allows letters and numbers for full name</script>
+            
+            <div style="padding-top: 1em;"></div>
+            <label for="password"> Password </label><span class="span" id="password_error"></span>          
+            <input type="password" id="password" name="password" size="20" placeholder="Password">
+            <div style="padding-top: 1em;"></div>
+            <label for="repeat_password">Confirm Password</label><span class="span" id="repeat_password_error"></span>           
+            <input type="password" id="repeat_password" name="repeat_password" size="20" placeholder="Repeat Password">
+            <div style="padding-top: 1em;"></div>
+            <label for="email">Email</label><span class="span" id="email_error"></span>
+            
+            <input type="email" id="email" name="email" size="20" placeholder="Enter Email">
+            
+            <div style="padding-top: 1em;"></div>
+            
+            <button class="register" style="text-align: center;">Register</button>
+     
+
+        </form>
+    </div>
+</body>
+
+</html>

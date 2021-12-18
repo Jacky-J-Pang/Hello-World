@@ -1,0 +1,172 @@
+<!-- Jacky Pang  
+        12/15/2021
+    I am so sleep deprived please excuse weird comments or any brevityis
+    i nth is page 
+
+    Product display
+    -->>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- load the two function -->
+    <script src="./functions.js"></script>
+    <script src="/session_data.js"></script>
+    <script>
+        var products_data;
+        var total = 0;
+        loadJSON('get_products_data', function (response) {
+            // Parsing JSON string into object
+            products_data = JSON.parse(response);
+        });
+
+        //taken from port's example
+        loadJSON('get_cart', function (response) {
+            cart_info = JSON.parse(response);
+            for (product_key in cart_info) {
+                total += cart_info[product_key].reduce((a, b) => a + b);
+            }
+        });
+
+        // get the query string
+        let params = (new URL(document.location)).searchParams;
+        if (params.has('products_key')) {
+            var products_key = params.get('products_key');
+        } else {
+            document.write('no products key in query string, select a card genre on the navigation bar please');
+            document.stop;
+        }
+    </script>
+    <script>
+        // see location error and search once everything is loaded
+        window.onload = function () {
+            let params = (new URL(document.location)).searchParams;
+            console.log(params);
+            console.log(location.search);
+            // For below, code below is taken part from 
+            if (params.has('qty_errors')) {
+                var errors = JSON.parse(params.get('qty_errors'));
+                var qty_data = JSON.parse(params.get('qty_data'));
+
+                for (i in products_data[products_key]) {
+                    // make it sticky so new products don't  get overwrite 
+                    if (typeof errors[`quantity[${i}]`] != 'undefined') {
+                        document.getElementById(`quantity[${i}]` + '_error').innerHTML = errors[`quantity[${i}]`];
+                    }
+                    // if there is no error, turn the error blank to not show anything
+                    if (typeof errors[`quantity[${i}]`] == 'undefined') {
+                        document.getElementById(`quantity[${i}]` + '_error').innerHTML = " ";
+                    }
+                    if (errors == 'undefined') {
+                        let errors = {}
+                    }
+                    console.log(errors[`quantity[${i}]`]);
+                }
+            }            
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Shop</title>
+    <link rel="stylesheet" href="./css/product-style.css">
+</head>
+<style>
+    img{
+        width: 300px;
+    height: 400px;
+    }
+
+</style>
+<body>
+    <div class="top">  
+            <h1>Runeterra Card SHop</h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropbtn"> GET CARDS HERE</a>
+                <div class="dropdown-content">
+                  <a href="products_display.html?products_key=Champions">Champions</a>
+                  <a href="products_display.html?products_key=Followers">Followers</a>
+                  <a href="products_display.html?products_key=Spells">Spells</a>
+                  <a href="products_display.html?products_key=Landmark">Landmark</a>
+                </div>
+              </li>
+            <li style="padding-left: 600px;">
+                <script>
+                    document.write( ` Welcome  ${user_name} !`);
+                </script>
+            </li>
+            <li style="float:right">
+                <script>
+                    /*Situational on the code display if username is not logged in print the following out else print the logout function */
+            
+                    if (typeof user_name == 'undefined'){
+                        document.write(`
+                        <a class="active" href="./login.html?products_key=Champions"> Login Here</a>`)
+                    } else {
+                        document.write(`
+                        <a class="active" href="/logout">Logout</a>`)
+                    }
+                </script>
+            </li>
+            <li style="float:right"><a class="active" href="./cart.html">Cart (<script>document.write(total)</script>)</a></li>
+          </ul> 
+    </div></div>
+
+  
+    <script>
+        // PRODUCT DISPLAY IS BELWO
+        var display_str = ``; //Place holder
+        products = products_data[products_key]; //CALL SPECIFIC CARD TYPES e.g. champions follwoers, spells and landmark
+        // now to generate display divs
+        // start with the form so it isn't being generated
+        display_str += `<div class="items" ><form action="/add_to_cart" id="form1" method="POST"><input type="hidden" name="products_key" value="${products_key}">`;
+        for (i = 0; i < products.length; i++) { //loop below is taken from previous assignment 2 and modified for different types of goods
+            display_str += `
+            
+                <div class="product_listing">
+                    <div class="product-info">
+                        <h3>${products[i]['name']}</h3>
+                        <img src=${products[i]['image']}>
+                 
+                    <h3>$${products[i]['price']}</h3><br>
+                        </div>
+                    <div class="product-input">
+                        <h4><label id="quantity[${i}]_label">How many? </label></h4>
+                        <input type="text" placeholder="${products[i]['quantity_available']} available" name="quantity[${i}]" id="quantity[${i}]" onkeyup="checkQuantityTextbox(this);"><br><span class="span" id="quantity[${i}]_error"></span>
+                        </div>
+                    </div>
+            `;
+        };
+        display_str += `</form></div>`;
+        document.write(display_str); // Print this entire code out
+    </script>
+    
+    <div class="butt"><button type="submit" form="form1">Add to Cart</button></div>
+    
+</body>
+<script>
+    // These functions are needed in order to check the inputs on product display page
+    // Taken from SmartPhoneProductsA!_Example from Assignment1 Module
+    // This function checks whether the inputs are NonNegInt
+    function isNonNegInt(q, return_errors = false) {
+        errors = []; // assume no errors at first
+        if (q == '') q = 0; // handle blank inputs as if they are 0
+        if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // Check if string is a number value
+        else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // Check if it is non-negative
+        else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer
+        return return_errors ? errors : (errors.length == 0);
+    }
+
+    //This function looks at the textbox and shows if the input is not valid
+    function checkQuantityTextbox(theTextbox) {
+        errs = isNonNegInt(theTextbox.value, true);
+        if (errs.length == 0) errs = ['You want:'];
+        if (theTextbox.value.trim() == '') errs = ['How many? '];
+        document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
+    }
+</script>
+
+</html>

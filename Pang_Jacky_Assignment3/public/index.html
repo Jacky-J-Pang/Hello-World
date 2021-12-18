@@ -1,0 +1,270 @@
+<!-- JACKY PANG 12/08/2021 https://www.youtube.com/watch?v=mAOxWf36YLo&t=1280s&ab_channel=TraversyMedia Reference soue-->
+<!-- HEADS UP NOTE IF YOUR READING THIS AND SOME COMMENTS OR CODE SEEMS WEIRD 
+     I HAVE BEEN SLEEP DEPRIVED FOR 2 DAYS STRAIGHT DUE TO FINALS EXCUESE MY TYPOS AND BREVITY.
+
+      Also you may find it wierd that the nav abr and stuff differs, it is b.ecause that the first half of the wbepage was a template the other half I utulizled a tempalte and 
+     modified it a slgihtly to fit the page theme mroe.
+
+     PS I FIXED the blody carousle cant add aniamtion because of limitationsin sthe video bagrkoudng of things
+     MOST CSS style files were imported via template on a paid website and was modified unforntauly it was taken down and there seems to be no solid link to the website again.:()
+-->
+<!-- Jacky Pang
+  COMMENT: IM Sleep Deprived as hell  
+Ref of CSS
+  https://www.w3schools.com/css/css_dropdowns.asp 
+  https://codepen.io/anandaprojapati/pen/GmrwYE
+  https://html-css-js.com/css/generator/box-shadow/ 
+  https://codepen.io/kylelavery88/pen/WrrXzz 
+  https://freshdesignweb.com/css-registration-form-templates/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>// Code below taken from Assignmnet 3 code examples</script>
+    <script src="./functions.js"></script>
+    <script>
+        var products_data;
+        loadJSON('get_products_data', function (response) {
+            // Parsing JSON string into object
+            products_data = JSON.parse(response);
+        });
+        var this_product_key = ''
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runeterra</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- SIDE BAR IS a COPIED TEMPLATE w/ carousel purpose -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <!-- ICONs-->
+</head>
+<style>
+    /*Other Misc*/
+    .new{
+      background-color:whitesmoke;
+    }
+     h2{
+          text-align: center;
+          background-color: whitesmoke;
+        }
+        .container-fluid{
+          text-align: justify;
+          text-justify: inter-word;
+        }
+        .image{
+          height: 200px ;
+          width: 300px;
+          padding-left: 15px;  
+          display: flex;
+          align-items: center;
+        } 
+        .image1 {
+          height: 200px ;
+          width: 300px;
+          padding-left: 15px;  
+          float:left;
+          padding-right: 10px ;
+  
+        }
+        .images-containter{
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+        .text{
+          text-align: inter-word;
+          text-align: justify;
+          padding-right: 10px;
+        }
+            /* Nav bar */
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;  
+    }
+  .w3-sidebar{
+    background-image:url('./images/Ashe.jpg');
+      background-size: cover;
+      background-position: center;
+  }
+  
+  .newsession{
+    background-color: wheat;
+  }
+     
+    /* Video */
+    video{
+      object-fit: cover;
+      width: 600px;
+      height: 700px;
+      align-self: center;
+    }
+    /* Styling Da BODY */
+    body, h3 {
+      font-family: 'lobster', sans;
+    }
+
+  </style>
+<body>
+    <script>
+    // Function to get cookie RECEIVED HELPED FROM ZHI JUN LAST SEMESTER STUDENT for this entire portion of COOKIES
+    // Adopted from responses in https://stackoverflow.com/questions/10730362/get-cookie-by-name
+    function getCookie(name = '') {
+      let cookies = document.cookie; // Set cookies to the cookie of the document
+      let cookiestore = {}; // Cookiestore is an empty object at first
+      cookies = cookies.split(";"); // Split the cookies, separate by semicolon
+      if (cookies[0] == "" && cookies[0][0] == undefined) {
+        return undefined;
+      }
+  
+      cookies.forEach(function (cookie) {
+        cookie = cookie.split(/=(.+)/); // Split the cookie up
+        if (cookie[0].substr(0, 1) == ' ') { // Into substrings, separated by space
+          cookie[0] = cookie[0].substr(1);
+        }
+        cookiestore[cookie[0]] = cookie[1]; // Set the 0th cookie of cookiestore as the 1st cookie
+      });
+  
+      return (name !== '' ? cookiestore[name] : cookiestore);
+    }
+    var cookieToEdit = getCookie('username');
+    var x = cookieToEdit.replace('username=', '');
+    var display = x.replace('%20', ' ');
+  </script>
+  
+  <body>    
+      <!-- Nav Bar Design -->
+      <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left"
+        style="display:right;z-index:2;width:40%;min-width:300px" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
+        <a href="./index.html" onclick="w3_close()" class="w3-bar-item w3-button"  class="glyphicon glyphicon-home">Home</a>
+        <a href="./login.html" onclick="w3_close()" class="w3-bar-item w3-button"  class="glyphicon glyphicon-log-in" >Log In</a>
+        <a href="./register.html" onclick="w3_close()" class="w3-bar-item w3-button" class="glyphicon glyphicon-user">Register</a>
+      </nav>
+  
+      <!-- Main Nav -->
+      <div class="w3-top">
+        <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+          <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()" background>☰ Menu</div>
+          
+          <div class="w3-right w3-padding-16">
+            Today's Date:
+            <script>
+              //Following is a client documentation of the current date parts were taken from https://phpcoder.tech/display-current-date-and-time-in-html-using-javascript/
+              var today = new Date();
+              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              document.write(date);
+            </script>
+          </div>
+  
+          <div class="w3-center w3-padding-16" style="text-align: center;"> <h1>Runeterra Trading Card Store </h1></div>
+        </div>
+      </div>
+  
+      <!-- GOOD STUFF -->
+  
+       <div style="padding-inline-end: 20px;"></div>
+      <!--Start if a few GIF Carousel-->
+      <div class="w3-content w3-display-container">
+        <img class="mySlides" src="./images/Index1.gif" style="width:100%">
+        <img class="mySlides" src="./images/index3.gif" style="width:100%">
+        <img class="mySlides" src="./images/index4.gif" style="width:100%">
+        <video class="mySlides"  autoplay muted loop style="width:100%">
+          <source src="./Images/Battle Queen Diana.mp4">
+        </video>
+        <video class="mySlides"  autoplay muted loop style="width:100%">
+          <source src="./Images/Jax.mp4">
+        </video>
+        <video class="mySlides"  autoplay muted loop style="width:100%">
+          <source src="./Images/Spirit Blossom Kindred.mp4">
+        </video>
+       
+  
+      
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+      </div>
+      
+      <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+      
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+      
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+      }
+      </script>
+    
+  
+      <h2 style = "text-align:center "> Login First to View Products</h2>
+    
+  
+      <script>
+        // Script to open and close sidebar
+        function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+        }
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+        }
+      </script>
+  
+    <div class="container-fluid">
+      <h3> Runeterra at a Glimpse </h3>
+      <p> 
+        Runeterra (meaning magic earth) is a plane of existence composed of the physical realm: an oblate spheroid planet and the Spirit Realm. It is also the fictional world where most of the lore of the League of Legends. Runeterra is part of the larger Runeterra Prime universe. The currently known continents the planet comprises are Valoran and Shurima. It also boasts several large bodies of water, such as the currently known 18 Seas (like the Conqueror's Sea and the Guardian's Sea), and 2 Oceans with several archipelagos and islands around them (like Ionia, the Serpent Isles, and the Shadow Isles). 
+      </p>
+    </div>
+    <!-- End of first paragraph-->
+    
+    <!-- Start of Second Paragraph-->
+    <div class = "container-fluid">
+      <!-- Images allginement -->
+      <div class="image">
+        <img src = "./Images/AboutUs1.jpg">
+        <img src= "./Images/AboutUS2.jpg">
+        <img src ="./Images/AboutUs4.jpg">
+           </div>
+      <div class="text">
+    
+        <h3> Rune Wars </h3>
+        <p>
+          Centuries ago, magical artifacts called the 'World Runes' were rediscovered. Over the following decades, knowledge of the Runes began to spread as more were unearthed. The world's brightest minds studied the ancient glyphs, attempting to determine the powers they possessed. Few could even begin to understand the importance of their origins, or the sheer power held within them. Some surmised that the Runes were integral to the creation of Runeterra itself. The first use of these mysterious artifacts proved catastrophic, as they reshaped the landscape of entire nations. Mistrust quickly grew as those who knew of the Runes imagined such “Makers' Might” being used as a weapon. Conflicts related to these magical artifacts began to occur, known as the Rune Wars.
+        </p>
+    
+        <p>
+          Open warfare raged across Runeterra. The first horrors of the Rune Wars sparked fear and aggression among those who now realized the power at their command. Ryze and his master, Tyrus, had sought out to lock away every World Rune beyond the reach of man for the protection of Runeterra. Some complied with their pleas, others dismissed them due to their new found powers and influence. After an incident with Tyrus, Ryze later on continued his journey alone in gathering all Runic artifacts so as to prevent another Rune War from starting and possibly destroying the world.
+        </p>
+    
+      </div>
+    </div>
+    <!-- End of second paragraph-->
+    
+    <!-- Last Paragraph-->
+    <img class = "image1" src = "Images/AboutUS5.jpg">
+    <div class ="text" >
+        <h3> The Great Darkin War </h3>
+        <p> 
+          The darkin are thrice-cursed—once by the ancient enemy they faced, again by the fall of their glorious empire, and finally by the betrayal that has damned them for all eternity.
+          The Great Darkin War was an ancient war between the remaining God-Warriors, the Darkin who were corrupted by the preceding Void War, the remaining mortal populace of Runeterra, and the Aspects (Celestial Beings). Most of the God-Warriors and Darkin would end up being killed or sealed away during this war.Bereft of purpose, and scarred by what they had endured in facing the Void (dimension of monsters), many of the Ascended became twisted in body and mind, naming themselves "Darkin" and raising hordes of mortal warriors to conquer the world. Eventually, the Aspects who had inspired their creation were forced to intervene, imprisoning the Darkin within their own accursed weapons.
+        </p>
+    </div class="new"> 
+    <!-- REF https://www.w3schools.com/html/html_youtube.asp  THIS CODE PROVIDED ME WITH SO MUCH TROUBEL LiTerally  -->
+  
+    <div style="text-align: center;" >
+      <iframe width="700" height="315"  
+        src="https://www.youtube.com/embed/Mbq8lgzXCxQ">
+      </iframe>
+    </div>
+  </body>
+  
+
+</html>

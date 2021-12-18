@@ -3,16 +3,14 @@
 
 //Below r variables for simpler code function 
 var products = require(__dirname + "/products.json"); // import product.jsfiles 
-
 var filename = 'user_data.json' //Defines the user_data.json array as an object
 var express = require('express');
 var session = require('express-session');
 var app = express(); //Executes Express
 var qs = require('querystring'); //Needs querystring in order to initiate functions
 var qstr = {}; //Defines qstr as a variable containing information to be passed to login page
-var wallpaperemp = {}; //Defines wallpaperemp as a variable that requests the query string
-// End of variable groups
-// Routing 
+
+
 // start sessions
 app.use(session({ secret: "ITM352 rocks!", saveUninitialized: false, resave: false }));
 // decode form post data

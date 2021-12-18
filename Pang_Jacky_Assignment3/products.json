@@ -1,0 +1,107 @@
+{
+    "Champions": [
+        {
+            "name" : "Braum: The Frejlord Strongman",
+            "price" : 13.00,
+            "image" : "./images/Braum.png",
+            "quantity_available": 3
+        },
+        {
+            "name" : "Tryndamere: The Barbarian King",
+            "price" : 28.00,
+            "image" : "./images/Tryn.jpg",
+            "quantity_available": 3
+        },
+        {
+            "name" : "Sion: The Undead Juggernaut ",
+            "price" : 37.00,
+            "image" : "./images/Sion.png",
+            "quantity_available": 3
+            
+        }, 
+        {
+            "name" : " Aurelion Sol: The Dragon Starforger",
+            "price" : 138.00,
+            "image" : "./images/Asol.jpg",
+            "quantity_available": 3
+        }
+    ],
+    "Followers": [
+        {
+            "name" : "Swole Scout",
+            "price" : 245.00,
+            "quantity_available": 3,
+            "image" : "./images/SwoleScout.png"
+        },
+        {
+            "name" : "Swole Squirrel",
+            "price" : 20.00,
+            "quantity_available": 3,
+            "image" : "./images/SwoleSquirrel.png"
+        },
+        {
+            "name" : "Sapling",
+            "price" : 1.00,
+            "quantity_available": 3,
+            "image" : "./images/Sapling.png"
+        },
+        {
+            "name" : "Ravenous Butcher",
+            "price" : 4.00,
+            "quantity_available": 3,
+            "image" : "./images/Butcher.png"
+        }
+    ],
+    "Spells": [
+        {
+            "name" : "Deny",
+        "price" : 18.00,
+        "quantity_available": 3,
+        "image" : "./images/Deny.png"
+    },
+    {
+        "name" : "Troll Gift",
+        "price" : 1.00,
+        "quantity_available": 3,
+        "image" : "./images/Troll.png"
+    },
+    {
+        "name" : "Grasp of the Undying",
+        "price" : 6.00,
+        "quantity_available": 3,
+        "image" : "./images/Grasp.png"
+    },
+    {
+        "name" : "Flame Chompers",
+        "price" : 1.50,
+        "quantity_available": 3,
+        "image" : "./images/Chomp.png"
+    }
+    ],
+    "Landmark": [
+        {
+            "name": "The Howlling Abyss",
+            "price": 129.00,
+            "image": "./images/ARAM.png",
+            "quantity_available": 1
+        },
+        {
+            "name": "Star Spring'",
+            "price": 420.00,
+            "image": "./images/Star.png",
+            "quantity_available":1
+        },
+        {
+            "name": "Restored Sun Disc",
+            "price": 169.00,
+            "image": "./images/SunDisc.png",
+            "quantity_available": 1
+        },
+        {
+            "name": "Vaults of Helia",
+            "price": 279.00,
+            "image": "./images/Shadow.jpg",
+            "quantity_available": 8
+        }
+    ]
+}
